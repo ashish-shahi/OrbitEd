@@ -1,2 +1,0 @@
-# OrbitEd
-A web platform that utilizes satellite and environmental data to deliver real-time insights for sustainable development — empowering people through accessible scientific information and informed decision-making.
