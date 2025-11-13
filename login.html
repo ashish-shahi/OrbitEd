@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Museum of Inventions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #000010, #00001c);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: rgba(0, 0, 40, 0.8);
+      border: 2px solid #00bfff;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00bfff;
+      padding: 40px;
+      width: 350px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    h2 {
+      color: #ff00ff;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #111133;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      box-shadow: 0 0 10px #00bfff;
+    }
+
+    button {
+      width: 95%;
+      padding: 10px;
+      background: linear-gradient(90deg, #00bfff, #ff00ff);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff00ff;
+    }
+
+    .error {
+      color: #ff5050;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .footer {
+      font-size: 13px;
+      margin-top: 15px;
+      color: #ccc;
+    }
+
+    .footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    #video-container video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+#video-container::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* dark overlay */
+  z-index: 0;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div id="video-container">
+
+
+
+  <div class="login-container">
+    <h2>Login to Explore</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter Username" required><br>
+      <input type="password" id="password" placeholder="Enter Password" required><br>
+      <button type="submit">Login</button>
+      <div class="error" id="errorMsg"></div>
+    </form>
+
+    <div class="footer">
+      Don’t have an account? <a href="register.html">Register</a>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const errorMsg = document.getElementById("errorMsg");
+
+  // Get saved user info
+  const storedUser = localStorage.getItem("museumUser");
+  const storedPass = localStorage.getItem("museumPass");
+
+  // Debug check (optional)
+  console.log("Stored user:", storedUser, "Stored pass:", storedPass);
+
+  // Check both registered and admin accounts
+  if (
+    (username === storedUser && password === storedPass) ||
+    (username === "admin" && password === "12345")
+  ) {
+    alert("✅ Login Successful! Welcome to the Museum of Inventions.");
+    window.location.href = "main.html"; // Redirect to your homepage
+  } else {
+    errorMsg.textContent = "❌ Invalid username or password. Try again!";
+  }
+});
+const videoContainer = document.getElementById("video-container");
+
+let video = document.createElement("video");
+video.src = "hello.mp4";  
+video.autoplay = true;
+video.muted = true;
+video.loop = true;
+
+videoContainer.appendChild(video);
+
+</script>
