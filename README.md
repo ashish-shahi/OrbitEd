@@ -1,7 +1,4 @@
-<!doctype html>
-<html>
-  <head><title>Orbited</title></head>
-  <body>
+
     <h1 align="center">Orbit-Ed AI Space Educator For Earthlings.</h1>
     <pre>
       Orbit-Ed is an innovative platform that bridges space technology and real-world applications to empower students, 
@@ -20,6 +17,4 @@
        🎓 Learning Hub: Engage with courses, case studies, and simulations to understand space-Earth connections.
 
        🤖 AI-Based Analysis: Generate intelligent reports and predictions from real-time satellite inputs.
-    </pre>
-  </body>
-</html>
+    
