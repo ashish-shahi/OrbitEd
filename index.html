@@ -5,36 +5,30 @@
        <link rel="stylesheet" href="style..css" type="text/css">
        <meta name="description" content="Orbited AI Space educator for Earthlings.">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- Essential Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<!-- SEO Meta Tags -->
 <title>Orbited | Space Innovation Hub – Explore the Future Beyond Earth</title>
 <meta name="description" content="Orbited is a space innovation hub exploring futuristic technologies, astronomy, satellites, and space science. Join the orbit of innovation and discover what lies beyond Earth.">
 <meta name="keywords" content="Orbited, space innovation, space technology, astronomy, space science, satellites, exploration, universe, futuristic tech, cosmos, research, innovation hub">
 <meta name="author" content="Orbited Team">
 
-<!-- Open Graph (Facebook, LinkedIn, etc.) -->
 <meta property="og:title" content="Orbited | Space Innovation Hub – Explore the Future Beyond Earth">
 <meta property="og:description" content="Join Orbited – the space innovation hub where technology, science, and imagination push beyond the stars.">
-<meta property="og:image" content="https://yourdomain.com/images/orbited-preview.jpg">
-<meta property="og:url" content="https://yourdomain.com">
+<meta property="og:image" content="imgvid/favicon.jpg">
+<meta property="og:url" content="index.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Orbited">
 
-<!-- Twitter Card (for social sharing) -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Orbited | Space Innovation Hub">
 <meta name="twitter:description" content="Explore the cosmos, innovation, and technology with Orbited – your hub for all things space.">
-<meta name="twitter:image" content="https://yourdomain.com/images/orbited-preview.jpg">
+<meta name="twitter:image" content="imgvid/favicon.jpg">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="C:\Users\TANISHKA SAWANT\OneDrive\Documents\GitHub\OrbitEd\favicon.jpg">
+<link rel="icon" type="image/png" href="imgvid/favicon.jpg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     </head>
@@ -42,7 +36,6 @@
  <nav class="navbar">
   <div class="nav-left">
     <img class="logo-image" src="imgvid/favicon.jpg"/>
-  
     <h2 class="logo"> OrbitEd-AI Space Educator for Earthlings</h2>
   </div>
 
@@ -52,24 +45,24 @@
 <a href="about.html"><i class="fas fa-info-circle"></i> </a>
 <a href="gallery.html"><i class="fas fa-images"></i> </a>
 <a href="contact.html"><i class="fas fa-envelope"></i> </a>
-<a href="login.html" class="login-btn"><i class="fas fa-user"></i> </a>
-    <!-- ☰ HAMBURGER ICON -->
-    <span class="menu-icon" onclick="openNav()">&#9776;</span>
+
+<a href="login.html" class="login-btn" data-state="logged-out">
+    <i class="fas fa-user"></i>
+</a>
+
+<span class="menu-icon" onclick="openNav()">&#9776;</span>
   </div>
 </nav>
 
-<!-- 🔹 SIDE NAVIGATION BAR -->
 <div id="sideNav" class="side-nav">
   <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="gallery.html">Gallery</a>
   <a href="contact.html">Contact</a>
-  <a href="login.html">Login</a>
-  <a href="register.html">Register</a>
+  <a href="login.html" class="side-login">Login</a>
+  <a href="register.html" class="side-register">Register</a>
 </div>
-
-
 
 <section class="slideshow">
   <div class="caption">
@@ -82,97 +75,85 @@
   </div>
 
   <div class="slides">
-    <div class="slide"><img src="imgvid/image.png" alt="Space Exploration"></div>
-    <div class="slide"><img src="imgvid/image copy 2.png" alt="Students Working on Space Models"></div>
-    <div class="slide"><img src="imgvid/image copy 3.png" alt="Astronomy Observation"></div>
-    <div class="slide"><img src="imgvid/image copy 4.png" alt="Innovation in Orbit"></div>
-<div class="slide"><img src="imgvid/image copy 5.png" alt="Innovation in Orbit"></div>
-<div class="slide"><img src="imgvid/image copy.png" alt="Innovation in Orbit"></div>
+    <div class="slide"><img src="imgvid/image.png"></div>
+    <div class="slide"><img src="imgvid/image copy 2.png"></div>
+    <div class="slide"><img src="imgvid/image copy 3.png"></div>
+    <div class="slide"><img src="imgvid/image copy 4.png"></div>
+    <div class="slide"><img src="imgvid/image copy 5.png"></div>
+    <div class="slide"><img src="imgvid/image copy.png"></div>
   </div>
 </section>
-
 
 <div class="animated-line"></div>
 <h2 class="dashboard-title">Dashboard</h2>
 <br>
-</div>
+
 <div class="event-section">
     <div class="event-card">
-      <img src="imgvid/image copy 6.png" alt="Science Exhibition">
+      <img src="imgvid/image copy 6.png">
       <h3>🌾Farmer's Hub</h3>
-      
       <a href="login.html" class="event-btn">Discover</a>
     </div>
 <div class="event-card">
-      <img src="imgvid/image copy 3.png" alt="Heritage Show">
-      <h3>🎓 Educator's Space</h3>
-      
-      <a href="login.html" class="event-btn">Discover</a>
+      <img src="imgvid/image copy 3.png">
+      <h3>☁️ Live Weather Data</h3>
+      <a href="#" id="weatherCardBtn" class="event-btn">Search</a>
     </div>
     <div class="event-card">
-      <img src="imgvid/image copy 4.png" alt="Innovation Fair">
+      <img src="imgvid/image copy 4.png">
       <h3>🧪Student's Hub</h3>
-     
       <a href="login.html" class="event-btn">Discover</a>
     </div>
   </div>
-    <div class="event-section">
-       <div class="event-card">
-      <img src="imgvid/image copy 2.png" alt="Science Exhibition">
+
+<div class="event-section">
+    <div class="event-card">
+      <img src="imgvid/image copy 2.png">
       <h3>🔬 Science Discovery Week</h3>
-     
       <a href="login.html" class="event-btn">Discover</a>
-        </div>
+    </div>
 <div class="event-card">
-      <img src="imgvid/image copy 3.png" alt="Heritage Show">
+      <img src="imgvid/image copy 3.png">
       <h3>🏺 Heritage Expo</h3>
-    
       <a href="login.html" class="event-btn">Discover</a>
     </div>
     <div class="event-card">
-      <img src="imgvid/image copy 4.png" alt="Innovation Fair">
+      <img src="imgvid/image copy 4.png">
       <h3>💡 Innovation Fair 2025</h3>
-   
       <a href="login.html" class="event-btn">Discover</a>
     </div>
-    </div>
+</div>
+
 <div class="animated-line"></div>
 
-
-
-    <footer>
-      <section class="footer-info">
+<footer>
+  <section class="footer-info">
 <h2 class="footer-title">Contact Us</h2>
 <p class="pfoot">
-      Orbit-Ed AI Space Educator for Earthling<br>
-      A place of innovation,Knowledge and Exploring world.<br>
-      📞 91+9090807060 | ✉️ orbit-ed@space.com
+Orbit-Ed AI Space Educator for Earthling<br>
+A place of innovation,Knowledge and Exploring world.<br>
+📞 91+9090807060 | ✉️ orbit-ed@space.com
 </p>
 <div class="footer-socials">
-<a href="https://www.instagram.com/" title="Instagram" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
-         alt="Instagram Logo">
+<a href="https://www.instagram.com/" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg">
 </a>
-<a href="https://www.facebook.com/" title="Facebook" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
-         alt="Facebook Logo">
+<a href="https://www.facebook.com/" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
 </a>
-
-<a href="https://twitter.com/" title="Twitter" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" 
-         alt="Twitter Logo">
+<a href="https://twitter.com/" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg">
 </a>
-
-<a href="https://www.youtube.com/" title="YouTube" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
-         alt="YouTube Logo">
+<a href="https://www.youtube.com/" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
 </a>
 </div>
   </section>
   <section class="footer-bottom">
     © 2025 <span>Orbit-Ed</span> | All Rights Reserved
   </section>
-    </footer>
-  <script src="script.js"></script>
+</footer>
+
+<script type="module" src="script.js"></script>
 </body>
 </html>

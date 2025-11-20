@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Museum of Inventions</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+#video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+}
+
+#video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#video-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  pointer-events: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container {
+  width: 90%;
+  max-width: 350px;
+  padding: 35px;
+  border-radius: 20px;
+  background: rgba(0, 0, 40, 0.85);
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 20px #00bfff;
+  text-align: center;
+  z-index: 5;
+}
+
+.register-container h2 {
+  color: #ff00ff;
+  margin-bottom: 20px;
+}
+
+.register-container input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #111133;
+  color: white;
+  font-size: 15px;
+}
+
+.register-container input:focus {
+  box-shadow: 0 0 10px #00bfff;
+}
+
+.register-container button {
+  width: 95%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  background: linear-gradient(90deg, #00bfff, #ff00ff);
+  color: white;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: 0.3s ease;
+}
+
+.register-container button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+.error {
+  color: #ff5050;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.success {
+  color: #00ffcc;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.footer {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #eeeeee;
+}
+
+.footer a {
+  color: #00bfff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div id="video-container"></div>
+
+<!-- Register Box -->
+<div class="register-container">
+  <h2>Create Account</h2>
+
+  <form id="registerForm">
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <input type="password" id="password" placeholder="Create Password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+    <button type="submit">Register</button>
+
+    <div class="error" id="errorMsg"></div>
+    <div class="success" id="successMsg"></div>
+  </form>
+
+  <div class="footer">
+    Already have an account? <a href="login.html">Login</a>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDnXnFlshtQujZhQrZYhKId-1aBldN-VDM",
+  authDomain: "orbited---ai-space-project.firebaseapp.com",
+  projectId: "orbited---ai-space-project",
+  storageBucket: "orbited---ai-space-project.firebasestorage.app",
+  messagingSenderId: "394860098894",
+  appId: "1:394860098894:web:aea617620db7e2c0151a1f"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  const errorMsg = document.getElementById("errorMsg");
+  const successMsg = document.getElementById("successMsg");
+
+  errorMsg.textContent = "";
+  successMsg.textContent = "";
+
+  if (password !== confirmPassword) {
+    errorMsg.textContent = "❌ Passwords do not match!";
+    return;
+  }
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      successMsg.textContent = "✅ Account created successfully! Redirecting...";
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    })
+    .catch((error) => {
+
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          errorMsg.textContent = "❌ This email is already registered.";
+          break;
+
+        case "auth/weak-password":
+          errorMsg.textContent = "❌ Password must be at least 6 characters.";
+          break;
+
+        case "auth/invalid-email":
+          errorMsg.textContent = "❌ Please enter a valid email address.";
+          break;
+
+        default:
+          errorMsg.textContent = "❌ Registration failed. Try again.";
+      }
+    });
+});
+
+const vc = document.getElementById("video-container");
+const video = document.createElement("video");
+video.src = "imgvid/hello.mp4";
+video.autoplay = true;
+video.loop = true;
+video.muted = true;
+video.playsInline = true;
+vc.appendChild(video);
+</script>
+
+</body>
+</html>
