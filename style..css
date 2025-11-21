@@ -55,10 +55,11 @@ margin: 0 auto;
   align-items: center;
   gap: 12px; /* spacing between image and text */
   color: #00ffff;
-  font-family:'times new roman',sans serif;
- font-weight: lighter;
+  font-family:'corsiva';
+
+ font-weight:lighter;
   letter-spacing: 1px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .nav-left {
