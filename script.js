@@ -86,9 +86,6 @@ function logoutUser(e) {
     window.location.href = "login.html";
   });
 }
-
-
-
 const slider = document.getElementById('teamSlider');
   const leftBtn = document.getElementById('slideLeft');
   const rightBtn = document.getElementById('slideRight');
