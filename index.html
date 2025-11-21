@@ -125,8 +125,10 @@
 </div>
 
 <div class="animated-line"></div>
+<br>
 <section class="team-section">
   <h2 class="title">Our Team</h2>
+  <hr size="3px" width="60%" cplor="pink">
 
   <div class="slider-container">
     <button class="slide-btn left" id="slideLeft">&#10094;</button>
@@ -134,26 +136,26 @@
     <div class="team-slider" id="teamSlider">
 
       <div class="member-box">
-        <img src="member1.jpg" alt="Member 1">
-        <h3>Rohan Sharma</h3>
+        <img src="imgvid/image copy 2.png" alt="Member 1">
+        <h3>Tanishka Sawant</h3>
         <p>Founder</p>
       </div>
 
       <div class="member-box">
-        <img src="member2.jpg" alt="Member 2">
-        <h3>Tanishka</h3>
+        <img src="imgvid/image copy 2.png" alt="Member 2">
+        <h3>Ashish Shahi</h3>
         <p>Co-Founder</p>
       </div>
 
       <div class="member-box">
-        <img src="member3.jpg" alt="Member 3">
-        <h3>Amit Verma</h3>
+        <img src="imgvid/image copy 2.png" alt="Member 3">
+        <h3>Arsh Shaikh</h3>
         <p>Developer</p>
       </div>
 
       <div class="member-box">
-        <img src="member4.jpg" alt="Member 4">
-        <h3>Priya Singh</h3>
+        <img src="imgvid/image copy 2.png" alt="Member 4">
+        <h3>Aditi Savle</h3>
         <p>Designer</p>
       </div>
 
@@ -190,7 +192,21 @@ A place of innovation,Knowledge and Exploring world.<br>
     © 2025 <span>Orbit-Ed</span> | All Rights Reserved
   </section>
 </footer>
+<script>
+  
+const slider = document.getElementById('teamSlider');
+  const leftBtn = document.getElementById('slideLeft');
+  const rightBtn = document.getElementById('slideRight');
 
+  rightBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+
+  leftBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+
+</script>
 <script type="module" src="script.js"></script>
 </body>
 </html>
