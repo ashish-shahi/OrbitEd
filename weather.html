@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Live Weather | OrbitEd</title>
 <link rel="icon" type="image/png" href="imgvid/favicon.jpg">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#04060e">
 <style>
 body {
   margin: 0;
@@ -257,6 +259,9 @@ window.getWeather = async function () {
     statusText.textContent = "⚠ Error getting data";
   }
 };
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js");
+}
 </script>
 
 </body>
