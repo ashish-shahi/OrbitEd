@@ -545,8 +545,8 @@ footer {
   margin-bottom: 15px;
   text-align: center;
   font-weight: bold;
-  word-spacing:20px;
-  font-family:'lucida calligraphy';
+  word-spacing:10px;
+  font-family:'Allura';
   color:rgb(231, 239, 8);
 }
 
@@ -574,7 +574,7 @@ footer {
 .member-box {
   min-width: 350px;
   max-width: 350px;
-  height:250px;
+  height:280px;
   background: white;
   border-radius: 40px;
   padding: 20px;
@@ -604,7 +604,12 @@ footer {
 
 .member-box p {
   font-size: 20px;
-  color: #070505;
+  color: #050705;
+}
+.member-box h6 {
+   font-family:'lucida calligraphy';
+   font-size:13px;
+   color:#195104;
 }
 
 /* Arrow buttons */
