@@ -86,3 +86,17 @@ function logoutUser(e) {
     window.location.href = "login.html";
   });
 }
+
+
+
+const slider = document.getElementById('teamSlider');
+  const leftBtn = document.getElementById('slideLeft');
+  const rightBtn = document.getElementById('slideRight');
+
+  rightBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+
+  leftBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -300, behavior: 'smooth' });
+  });
