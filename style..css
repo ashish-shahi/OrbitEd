@@ -17,7 +17,7 @@ body {
   margin-right:0px;
    margin-top:0px;
    /* fixes it at the top */   
-  height:40px;
+  height:50px;
   width:100%;
   max-width: 1450px;
 margin: 0 auto;
@@ -499,9 +499,7 @@ footer {
   display: inline-block;
   margin: 0 15px;
   transition: transform 0.3s ease, filter 0.3s ease;
-
   margin: 0 25px; /* adjust 20px as per your spacing preference */
-
 }
 
 .footer-socials img {
@@ -535,16 +533,21 @@ footer {
 
 
       .team-section {
-  width: 100%;
-  padding: 30px;
-  background: #f7f7f7;
+  width: 90%;
+  padding: 25px;
+  background: #38016ba8;
+  border-radius:15px;
+  margin:auto;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 30px;
   margin-bottom: 15px;
   text-align: center;
   font-weight: bold;
+  word-spacing:20px;
+  font-family:'lucida calligraphy';
+  color:rgb(231, 239, 8);
 }
 
 /* Slider container with buttons */
@@ -553,12 +556,11 @@ footer {
   display: flex;
   align-items: center;
 }
-
 /* Scrollable area */
 .team-slider {
   display: flex;
   overflow-x: auto;
-  gap: 20px;
+  gap: 30px;
   padding: 20px 10px;
   scroll-behavior: smooth;
   scrollbar-width: none;       /* hide scrollbar in Firefox */
@@ -570,33 +572,39 @@ footer {
 
 /* Boxes */
 .member-box {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 350px;
+  max-width: 350px;
+  height:250px;
   background: white;
-  border-radius: 15px;
+  border-radius: 40px;
   padding: 20px;
+  border: 3px solid cyan;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   box-shadow: 0 0 25px rgba(2, 236, 240, 0.715);
 }
 
 .member-box img {
-  width: 120px;
+ width: 120px;     /* same width and height */
   height: 120px;
+  background: #3504b1b3;
+  border-radius: 50%;  
   object-fit: cover;
-  border-radius: 50%;
   margin-bottom: 12px;
-  border: 3px solid #ddd;
+  border: 3px solid #07e9f9;
+  box-shadow: 0 0 25px rgba(119, 2, 132, 0.514);
 }
 
 .member-box h3 {
   margin: 5px 0 3px;
-  font-size: 18px;
+  font-size: 24px;
+  color:navy;
   font-weight: bold;
+  font-family:verdana;
 }
 
 .member-box p {
-  font-size: 14px;
-  color: #555;
+  font-size: 20px;
+  color: #070505;
 }
 
 /* Arrow buttons */
@@ -604,7 +612,7 @@ footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: white;
+  background: rgb(7, 233, 241);
   border: none;
   font-size: 25px;
   cursor: pointer;
@@ -623,7 +631,7 @@ footer {
 }
 
 .slide-btn:hover {
-  background: #eee;
+  background: #09f0b6;
 }
 
 
