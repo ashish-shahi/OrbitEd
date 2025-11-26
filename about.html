@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Museum of Inventions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #00001a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, #4f039b, #038610);
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 15px #000;
+      letter-spacing: 2px;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 30px;
+      background: linear-gradient(145deg, #0a0a2a, #1a1a3a);
+      border: 2px solid #00ffff;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      animation: fadeIn 2s ease;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #00ffff;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #cccccc;
+      text-align: justify;
+    }
+
+    .mission {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .mission img {
+      width: 300px;
+      border-radius: 15px;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      animation: float 4s infinite ease-in-out;
+    }
+
+    .mission-text {
+      flex: 1;
+      min-width: 250px;
+      margin: 20px;
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .timeline {
+      margin-top: 50px;
+    }
+
+    .timeline-item {
+      margin: 30px 0;
+      border-left: 3px solid #00ffff;
+      padding-left: 20px;
+      position: relative;
+      animation: slideUp 1.5s ease;
+    }
+
+    .timeline-item::before {
+      content: "🔹";
+      position: absolute;
+      left: -18px;
+      top: 0;
+      font-size: 20px;
+      color: #00ffff;
+    }
+
+    .timeline-item h3 {
+      color: #ff66ff;
+      margin-bottom: 5px;
+    }
+
+    @keyframes slideUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      text-align: center;
+      margin: 60px 0 20px;
+      font-size: 14px;
+      color: #777;
+    }
+    .profile-icon {
+  width: 50px;            /* very small, matches text height */
+  height: 50px;
+  border-radius: 50%;     /* circular */
+  object-fit: cover;
+  margin-right: 8px;      /* small spacing from name */
+  vertical-align: middle; /* aligns with text */
+}
+
+.timeline-item h3 {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;       /* adjust if needed */
+}
+.timeline-item p{
+    font-size:large;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style:oblique;
+    color:rgb(81, 194, 194);
+    
+}
+
+  </style>
+</head>
+<body>
+  <header>About Orbit-Ed</header>
+
+  <div class="section">
+    <h2>Our Visionary Story: Making Space Technology Accessible to All</h2>
+    <h3 align="center" style="color:yellow;font-family:'lucida calligraphy';">From Space to Society: The Origin of Orbit-Ed</h3>
+    <p style="font-family:times new roman;font-size:medium;">
+      <strong>Orbit-Ed </strong> was created with a clear vision: to make space technology accessible and impactful for everyone. 
+      While satellites, AI, and geospatial tools have advanced rapidly, their benefits often remain out of reach for everyday users.
+       Orbit-Ed bridges this gap by transforming complex space data into practical insights for real-world challenges—from 
+       environmental monitoring and disaster readiness to education, planning, and sustainability. Our mission is to connect
+        space intelligence with society, empowering smarter decisions for a better and more resilient future.
+  </div>
+
+  <div class="section mission">
+    <div class="mission-text">
+      <h2>Our Mission</h2>
+      <p style="font-family:times new roman">
+       Orbit-Ed aims to make space technology accessible and meaningful for all.
+We transform complex satellite intelligence into clear, practical insights that solve real-world challenges.
+Our mission is to inspire informed decisions, support sustainable development, and connect everyday life with the power of space innovation.
+      </p>
+    </div>
+    <img src="imgvid/favicon.jpg" alt="Museum Interior">
+  </div>
+
+  <div class="section timeline">
+    <h2>The Minds Behind [Orbit-Ed] – creative and engaging.</h2>
+    <div class="timeline-item">
+        <img src="imgvid/tanishka1.jpg" alt="Tanishka Sawant" class="profile-icon">
+      <h3>Founder– Tanishka Sawant</h3>
+      <p>tanishka@orbited.com || linkedin.com/in/tanishka-orbited || instagram.com/tanishka_orbited</p>
+    </div>
+
+    <div class="timeline-item">
+         <img src="imgvid/Ashish1.png" alt="Tanishka Sawant" class="profile-icon">
+      <h3>Co-founder – Ashish Shahi</h3>
+      <p>ashish@orbited.com || linkedin.com/in/ashish-orbited || instagram.com/ashish_orbited.</p>
+    </div>
+
+    <div class="timeline-item">
+         <img src="imgvid/arsh.jpg" alt="Tanishka Sawant" class="profile-icon">
+      <h3>Developer– Arsh Shaikh</h3>
+      <p>arsh@orbited.com || linkedin.com/in/arsh-orbited || : instagram.com/arsh_dev</p>
+    </div>
+
+    <div class="timeline-item">
+         <img src="imgvid/aditi.jpg" alt="Tanishka Sawant" class="profile-icon">
+      <h3>Designer– Aditi Savle</h3>
+      <p> aditi@orbited.com || linkedin.com/in/aditi-orbited || instagram.com/aditi_designs.</p>
+    </div>
+  </div>
+
+  <footer>© 2025 ORBIT-ED  AI SPACE EDUCATOR ..&hearts;</footer>
+</body>
+</html>
+
+
+
+
