@@ -51,12 +51,11 @@ margin: 0 auto;
 }
 
 .logo {
-  display: flex;
+  display:flex;
   align-items: center;
   gap: 12px; /* spacing between image and text */
   color: #00ffff;
   font-family:'corsiva';
-
  font-weight:lighter;
   letter-spacing: 1px;
   font-size: 1.5rem;
