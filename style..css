@@ -4,8 +4,11 @@ body {
   color: white;
     margin: 0px;
     padding: 0px;
+  
     box-sizing: border-box;
 }
+
+    
 /* ======= NAVBAR ======= */
 .navbar {
   display: flex;
