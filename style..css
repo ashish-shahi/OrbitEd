@@ -22,7 +22,7 @@ body {
    /* fixes it at the top */   
   height:50px;
   width:100%;
-  max-width: 1450px;
+  max-width:1600px;
 margin: 0 auto;
   position: fixed;
   top: 0;
