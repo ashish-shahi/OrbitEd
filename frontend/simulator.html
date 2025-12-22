@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orbit-Ed | Earth Crisis Simulator</title>
+  <link rel="stylesheet" href="style/style1.css">
+</head>
+<body>
+
+<nav>
+   <div class="flex">
+    <h1><img class="logo-image" src="image.png"/>
+      &nbsp; &nbsp;Orbit-Ed</h1>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div> </div>
+    <a href="index1.html">Home</a>
+   <a href="simulator.html">Simulator</a>
+   <a href="map.html">MAP</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h2>🌍 Earth Crisis Simulator</h2>
+  <p>
+    Adjust climate parameters to see potential environmental risks
+    using space-inspired intelligence.
+  </p>
+
+  <div class="card">
+    <label>🌡️ Temperature Change (°C)</label><br>
+    <input type="number" id="temperature" value="1.5"><br><br>
+
+    <label>🌧️ Rainfall Change (%)</label><br>
+    <input type="number" id="rainfall" value="-10"><br><br>
+
+    <button class="btn" onclick="runSimulation()">Run Simulation</button>
+  </div>
+
+ <div class="card" id="result" style="display:none;">
+  <h3>🧠 AI Climate Intelligence Report</h3>
+  <div id="risk"></div>
+  <div id="impacts"></div>
+  <div id="ai"></div>
+  <div id="actions"></div>
+</div>
+<button class="btn" onclick="downloadReport()">
+  📄 Download AI Report
+</button>
+
+  <button class="btn" onclick="window.location.href='map.html'">
+  View Risk on Map
+</button>
+</section>
+
+<footer>
+  © 2025 Orbit-Ed • Space Intelligence for Earth
+</footer>
+
+<script src="script/script1.js"></script>
+</body>
+</html>
