@@ -1,260 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ORbIted | AI Space Educator</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:Poppins,sans-serif;
-  background:radial-gradient(circle at top,#0b0f2a,#000);
-  color:#fff;
-}
-
-/* NAVBAR */
-nav{
-  position:fixed;
-  top:0;width:100%;
-  padding:15px 10%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  z-index:1000;
-}
-nav h2{
-  font-family:Orbitron,sans-serif;
-  color:#6cf1ff;
-}
-nav ul{
-  display:flex;
-  gap:25px;
-  list-style:none;
-}
-nav a{
-  text-decoration:none;
-  color:#fff;
-  font-size:0.95rem;
-  transition:.3s;
-}
-nav a:hover{color:#6cf1ff}
-
-/* HERO */
-header{
-  height:100vh;
-  background:url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa") center/cover no-repeat;
-  position:relative;
-}
-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.7);
-}
-.hero{
-  position:relative;
-  z-index:2;
-  height:100%;
-  padding:0 10%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.hero h1{
-  font-family:Orbitron,sans-serif;
-  font-size:3.8rem;
-  color:#6cf1ff;
-}
-.hero p{
-  max-width:600px;
-  margin:20px 0 30px;
-  color:#ddd;
-}
-.hero button{
-  width:fit-content;
-  padding:12px 30px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg,#6cf1ff,#8a7cff);
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
-}
-.hero button:hover{transform:scale(1.05)}
-
-/* SECTIONS */
-section{
-  padding:90px 10%;
-}
-section h2{
-  font-family:Orbitron,sans-serif;
-  font-size:2.3rem;
-  margin-bottom:40px;
-  color:#6cf1ff;
-}
-
-/* DISCOVERIES */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:22px;
-  backdrop-filter:blur(10px);
-  transition:.4s;
-  opacity:0;
-  transform:translateY(40px);
-}
-.card.show{
-  opacity:1;
-  transform:translateY(0);
-}
-.card:hover{
-  transform:translateY(-10px);
-  border-color:#6cf1ff;
-}
-.card img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:15px;
-}
-.card h3{margin-bottom:8px}
-
-/* VIDEOS */
-.video{
-  cursor:pointer;
-  text-align:center;
-}
-.video span{
-  font-size:3.5rem;
-  color:#6cf1ff;
-}
-
-/* FOOTER */
-footer{
-  padding:40px 10%;
-  text-align:center;
-  background:#000;
-  color:#aaa;
-  font-size:.9rem;
-}
-</style>
+  <meta charset="UTF-8" />
+  <title>ORbIted | Live Space News</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <h2>ORbIted</h2>
-  <ul>
-    <li><a href="#discoveries">Discoveries</a></li>
-    <li><a href="#videos">Media</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-</nav>
+  <header>
+    <h1>🚀 Live Space News</h1>
+    <p>Real-time updates from the space world</p>
+  </header>
 
-<!-- HERO -->
-<header>
-  <div class="hero">
-    <h1>Educating Earthlings</h1>
-    <p>
-      ORbIted is an AI-powered space education platform where Earthlings
-      learn space, satellites, and discoveries — simply and visually.
-    </p>
-    <button onclick="scrollToSection('discoveries')">Explore Discoveries</button>
-  </div>
-</header>
+  <main>
+    <div id="news-container" class="news-grid">
+      <!-- News cards will load here -->
+    </div>
+  </main>
 
-<!-- DISCOVERIES -->
-<section id="discoveries">
-<h2>🛰 Space Discoveries</h2>
-<div class="grid">
+  <footer>
+    <p>Powered by Spaceflight News API | ORbIted 🌌</p>
+  </footer>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581091870627-3e37e1ec3d41">
-    <h3>Satellite Imaging</h3>
-    <p>AI analyzes Earth from orbit to track forests, oceans and climate change.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1447433819943-74a20887a5a5">
-    <h3>Mars Exploration</h3>
-    <p>AI-powered rovers navigate Mars and study rocks millions of km away.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564">
-    <h3>Deep Space</h3>
-    <p>Machine learning helps identify galaxies, stars and black holes.</p>
-  </div>
-
-</div>
-</section>
-
-<!-- VIDEOS -->
-<section id="videos">
-<h2>🎥 Learn in 60 Seconds</h2>
-<div class="grid">
-
-  <div class="card video" onclick="openVideo('https://www.youtube.com')">
-    <span>▶</span>
-    <h3>Why satellites don’t fall?</h3>
-    <p>Simple physics explained visually.</p>
-  </div>
-
-  <div class="card video" onclick="openVideo('https://www.youtube.com')">
-    <span>▶</span>
-    <h3>AI Myth Busting</h3>
-    <p>Can AI replace astronauts?</p>
-  </div>
-
-  <div class="card video" onclick="openVideo('https://www.youtube.com')">
-    <span>▶</span>
-    <h3>Did You Know?</h3>
-    <p>Astronauts grow taller in space.</p>
-  </div>
-
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-© 2025 ORbIted • AI Space Educator for Earthlings 🌍🚀
-</footer>
-
-<script>
-/* Smooth scroll button */
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-/* Video click */
-function openVideo(url){
-  window.open(url,'_blank');
-}
-
-/* Scroll animation */
-const cards=document.querySelectorAll('.card');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-  });
-},{threshold:0.2});
-cards.forEach(card=>observer.observe(card));
-</script>
-
+  <script src="app.js"></script>
 </body>
 </html>
