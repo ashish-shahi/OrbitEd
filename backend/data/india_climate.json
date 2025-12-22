@@ -1,0 +1,7 @@
+{
+  "region": "India",
+  "crop": "Wheat",
+  "base_ndvi": 0.6,
+  "average_temperature": 25,
+  "average_rainfall": 100
+}
