@@ -70,11 +70,33 @@ nav a:hover {
        border-radius:60px;
       box-shadow: 0 0 15px rgba(101, 230, 245, 0.3);
     transition: all 0.3s ease;
+    background-color: #150224;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s forwards;
 }
-  
+
+    #video-container video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    #video-container::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
+    }
+
 .logo-image {
   width: 50px;          /* adjust as you like */
   height: 50px;
@@ -145,6 +167,7 @@ nav a:hover {
   border-radius: 10px;
   margin: 20px auto;
   max-width: 400px;
+  border:2px solid rgb(82, 7, 195);
 }
 
 /* ===== FOOTER ===== */
@@ -172,7 +195,7 @@ input {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
-  border: none;
+  border:2px solid rgb(107, 3, 107);
   margin-top: 5px;
   background: #1e293b;
   color: #e6e6e6;
