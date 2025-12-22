@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors pip install flask flask-cors
-import CORS
+from flask_cors import CORS
 import json
 from simulation import run_simulation
 
