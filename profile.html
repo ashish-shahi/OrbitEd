@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control | User Profile</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <div class="side-nav">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="weather.html">Space Weather</a>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="#" class="side-login">Login</a>
+        <a href="register.html" class="side-register">Register</a>
+    </div>
+
+    <span class="open-nav" onclick="openNav()">&#9776; Menu</span>
+
+    <div class="profile-container">
+        <div class="glass-card profile-card">
+            <div class="profile-header">
+                <i class="fas fa-user-astronaut astronaut-icon"></i>
+                <h2>Astronaut Profile</h2>
+                <p>Update your mission credentials below</p>
+            </div>
+
+            <div class="profile-form">
+                <div class="input-group">
+                    <label>Commander Name</label>
+                    <input type="text" id="nameInput" placeholder="Enter your full name">
+                </div>
+
+                <div class="input-group">
+                    <label>Department (Branch)</label>
+                    <select id="branchInput">
+                        <option value="">Select Branch</option>
+                        <option value="CS">Computer Science</option>
+                        <option value="IT">Information Tech</option>
+                        <option value="ENTC">Electronics (ENTC)</option>
+                        <option value="MECH">Mechanical</option>
+                        <option value="AI">AI & Data Science</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Mission Year</label>
+                    <select id="yearInput">
+                        <option value="">Select Year</option>
+                        <option value="FY">First Year (Rookie)</option>
+                        <option value="SY">Second Year</option>
+                        <option value="TY">Third Year</option>
+                        <option value="BTech">Final Year (Veteran)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>GitHub Comms Link</label>
+                    <input type="text" id="githubInput" placeholder="https://github.com/username">
+                </div>
+
+                <button id="saveBtn" class="neon-button">Save Mission Data</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
