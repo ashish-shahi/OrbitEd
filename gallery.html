@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orbit-Ed | Space & Earth Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="gallery.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="main">
+
+  <!-- 🎥 Background Video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="frontend/bgvid.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🌑 Dark Overlay -->
+  <div class="overlay"></div>
+
+  <!-- 🌌 HERO -->
+  <section class="hero">
+    <h1>Space & Earth Gallery</h1>
+    <p>Captured by satellites • Telescopes • Space missions</p>
+  </section>
+
+  <!-- 🎛 FILTERS -->
+  <section class="filters">
+    <button class="filter-btn active" data-query="space">All</button>
+    <button class="filter-btn" data-query="earth satellite">Earth</button>
+    <button class="filter-btn" data-query="night earth">Night View</button>
+    <button class="filter-btn" data-query="satellite">Satellites</button>
+    <button class="filter-btn" data-query="galaxy">Deep Space</button>
+  </section>
+
+</div>
+
+<!-- 🖼️ GALLERY -->
+<section class="gallery" id="gallery"></section>
+
+<!-- 🔍 MODAL -->
+<div class="modal" id="imageModal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+  <p id="modalTitle"></p>
+</div>
+
+<!-- 🔻 FOOTER -->
+<footer class="footer">
+  <p>© 2025 Orbit-Ed | Space Intelligence for Earth 🌍🚀</p>
+</footer>
+
+<script src="gallery.js"></script>
+</body>
+</html>
