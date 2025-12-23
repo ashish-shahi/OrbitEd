@@ -122,6 +122,25 @@
       <h3>💡Events .</h3>
       <a href="login.html" class="event-btn">Discover</a>
     </div>
+    <div class="animated-line"></div>
+
+<section class="apod-section">
+  <h2 class="dashboard-title">🌌 Astronomy Picture of the Day</h2>
+
+  <div class="apod-card">
+    <div id="apod-media"></div>
+
+    <div class="apod-content">
+      <h3 id="apod-title">Loading...</h3>
+      <p id="apod-date"></p>
+      <p id="apod-explanation"></p>
+      <p class="apod-credit" id="apod-credit"></p>
+
+      <a id="apod-hd" class="event-btn" target="_blank">View HD Image</a>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <div class="animated-line"></div>
@@ -214,6 +233,41 @@ const slider = document.getElementById('teamSlider');
 
 <!-- Chatbot Widget -->
 <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>69392bf9b5ed0604634a4678,693922bd73e88305b62b5c92</script>
+
+
+<script>
+const NASA_API_KEY = "ovP5r9om6kP9imEYEZXvdKVCQQ0bwXU9tpEarAjz";
+const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
+
+fetch(APOD_URL)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("apod-title").innerText = data.title;
+    document.getElementById("apod-date").innerText = data.date;
+    document.getElementById("apod-explanation").innerText = data.explanation;
+
+    if (data.copyright) {
+      document.getElementById("apod-credit").innerText =
+        "© " + data.copyright;
+    }
+
+    const media = document.getElementById("apod-media");
+
+    if (data.media_type === "image") {
+      media.innerHTML = `<img src="${data.url}" alt="${data.title}">`;
+      document.getElementById("apod-hd").href = data.hdurl || data.url;
+    } else {
+      media.innerHTML = `
+        <iframe src="${data.url}" frameborder="0" allowfullscreen></iframe>`;
+      document.getElementById("apod-hd").style.display = "none";
+    }
+  })
+  .catch(err => {
+    document.getElementById("apod-title").innerText =
+      "Failed to load Astronomy Picture of the Day";
+    console.error(err);
+  });
+</script>
 
 </body>
 </html>
