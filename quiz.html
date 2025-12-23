@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Explorer | Find Your Perfect Path</title>
+    <meta name="description" content="A production-grade AI career matching engine finding your perfect job from 200+ distinct career paths.">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="container">
+            <h1>Career<span class="highlight">Explorer</span></h1>
+            <p>AI-Powered Matching Engine</p>
+        </div>
+    </header>
+
+    <main id="app" class="container">
+        
+        <div id="loading-screen" class="loading-state" role="status" aria-live="polite">
+            <div class="spinner"></div>
+            <p>Initializing Matching Engine...</p>
+            <small>Loading 200 career vectors & IDF tables</small>
+        </div>
+
+        <div id="quiz-container" class="quiz-panel" style="display: none;">
+            
+            <div class="progress-wrapper">
+                <div class="progress-info" id="progress-text">Question 1 of 8</div>
+                <div class="progress-track">
+                    <div id="progress-bar" class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h2 id="question-text">What type of work interests you the most?</h2>
+                <div id="options-container" class="options-grid">
+                    </div>
+            </div>
+        </div>
+
+        <div id="results-container" class="results-panel" style="display: none;" tabindex="-1">
+            <div class="results-header">
+                <h2>Your Matches Found</h2>
+                <p>Based on weighted token analysis of your answers.</p>
+                <button class="restart-btn" onclick="window.location.reload()">Start Over ↺</button>
+            </div>
+            
+            <div id="results-list" class="career-grid">
+                </div>
+        </div>
+
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; 2024 AI Career Explorer. Production Build v1.0</p>
+            <p class="disclaimer">Matches are algorithmic suggestions. Conduct your own research.</p>
+        </div>
+    </footer>
+
+    <script src="quiz.js" defer></script>
+</body>
+</html>
