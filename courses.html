@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Courses | OrbitEd AI Space</title>
+    <link rel="stylesheet" href="style..css" type="text/css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      .hero {
+        background: linear-gradient(90deg,#04122b 0%, #072b46 60%);
+        color: #fff;
+        padding: 48px 24px;
+        text-align: center;
+        border-radius: 8px;
+        margin: 18px;
+        box-shadow: 0 6px 24px rgba(2,6,23,0.5);
+      }
+      .hero h1 {font-size: 2.2rem; margin: 0 0 8px}
+      .hero p {opacity: 0.9}
+      .cta {display:inline-block; margin-top:12px; background:#ff7a18; color:#fff; padding:10px 18px; border-radius:999px; text-decoration:none; font-weight:700}
+      .courses-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:18px; margin:18px}
+      .course-card {background:#fff; padding:16px; border-radius:10px; box-shadow:0 6px 18px rgba(2,6,23,0.08);}
+      .course-card img{width:100%; height:140px; object-fit:cover; border-radius:8px}
+      .course-card h3{margin:10px 0 6px}
+      .course-meta{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+      .badge{background:#eef6ff;color:#045; padding:6px 8px;border-radius:999px;font-size:0.85rem}
+      .course-details{font-size:0.95rem; line-height:1.3; margin-bottom:10px}
+      .event-btn{background:#04122b;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:700}
+      .courses-aside{background:#f7fbff;padding:16px;border-radius:10px;margin:18px}
+      @media (min-width:1000px){ main.courses-container{display:grid; grid-template-columns:1fr 320px; gap:18px} }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img class="logo-image" src="imgvid/favicon.jpg"/>
+        <h2 class="logo">OrbitEd-AI Space Educator for Earthlings</h2>
+      </div>
+
+      <div class="nav-right">
+        <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+        <a href="about.html"><i class="fas fa-info-circle"></i></a>
+        <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+        <a href="login.html" class="login-btn" data-state="logged-out"><i class="fas fa-user"></i></a>
+        <span class="menu-icon" onclick="openNav()">&#9776;</span>
+      </div>
+    </nav>
+
+    <div id="sideNav" class="side-nav">
+      <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="login.html" class="side-login">Login</a>
+      <a href="register.html" class="side-register">Register</a>
+    </div>
+
+    <section class="hero">
+      <h1>Launch Your Space-Tech Career</h1>
+      <p>Industry-driven, project-first courses that help college students build practical skills in AI, remote sensing, and satellite systems.</p>
+      <a class="cta" href="register.html">Get Started — Free Preview</a>
+    </section>
+
+    <main class="courses-container">
+      <section class="courses-grid">
+
+        <article class="course-card">
+          <img src="imgvid/image copy 2.png" alt="AI for EO">
+          <div class="course-meta"><span class="badge">8 weeks</span><span class="badge">Beginner → Intermediate</span></div>
+          <h3>AI for Earth Observation</h3>
+          <div class="course-details">
+            <ul>
+              <li><strong>Overview:</strong> Apply ML to satellite imagery for classification, segmentation and monitoring.</li>
+              <li><strong>Skills:</strong> CNNs, transfer learning, image augmentation, model evaluation.</li>
+              <li><strong>Project:</strong> Crop-type mapping from multispectral images.</li>
+              <li><strong>Outcome:</strong> Portfolio-ready notebook + deployment demo.</li>
+            </ul>
+          </div>
+          <a href="login.html" class="event-btn">Enroll</a>
+        </article>
+
+        <article class="course-card">
+          <img src="imgvid/image copy 3.png" alt="Satellite Data Analytics">
+          <div class="course-meta"><span class="badge">6 weeks</span><span class="badge">Intermediate</span></div>
+          <h3>Satellite Data Analytics</h3>
+          <div class="course-details">
+            <ul>
+              <li><strong>Overview:</strong> Work with Sentinel/Landsat, raster & vector data, reprojection and mosaicking.</li>
+              <li><strong>Skills:</strong> GDAL, rasterio, geopandas, time-series analysis.</li>
+              <li><strong>Project:</strong> Urban change detection dashboard.</li>
+              <li><strong>Outcome:</strong> Interactive map + data processing pipeline.</li>
+            </ul>
+          </div>
+          <a href="login.html" class="event-btn">Enroll</a>
+        </article>
+
+        <article class="course-card">
+          <img src="imgvid/image copy 4.png" alt="Remote Sensing & GIS">
+          <div class="course-meta"><span class="badge">5 weeks</span><span class="badge">Beginner</span></div>
+          <h3>Remote Sensing & GIS</h3>
+          <div class="course-details">
+            <ul>
+              <li><strong>Overview:</strong> Spectral indices, landcover mapping, coordinate systems and GIS workflows.</li>
+              <li><strong>Skills:</strong> QGIS basics, geospatial analysis, NDVI, accuracy assessment.</li>
+              <li><strong>Project:</strong> Flood extent mapping using optical & SAR data.</li>
+              <li><strong>Outcome:</strong> GIS project report and map exports.</li>
+            </ul>
+          </div>
+          <a href="login.html" class="event-btn">Enroll</a>
+        </article>
+
+        <article class="course-card">
+          <img src="imgvid/image copy 6.png" alt="ML for Geospatial">
+          <div class="course-meta"><span class="badge">8 weeks</span><span class="badge">Advanced</span></div>
+          <h3>Machine Learning for Geospatial</h3>
+          <div class="course-details">
+            <ul>
+              <li><strong>Overview:</strong> Advanced ML models for segmentation, object detection and change detection.</li>
+              <li><strong>Skills:</strong> U-Net, Mask R-CNN, geospatial evaluation metrics.</li>
+              <li><strong>Project:</strong> Automated building footprint extraction pipeline.</li>
+              <li><strong>Outcome:</strong> Trained model + evaluation notebook.</li>
+            </ul>
+          </div>
+          <a href="login.html" class="event-btn">Enroll</a>
+        </article>
+
+        <article class="course-card">
+          <img src="imgvid/image.png" alt="Space Systems">
+          <div class="course-meta"><span class="badge">6 weeks</span><span class="badge">All levels</span></div>
+          <h3>Space Systems Engineering</h3>
+          <div class="course-details">
+            <ul>
+              <li><strong>Overview:</strong> Small-sat architecture, payloads, communication links and mission ops.</li>
+              <li><strong>Skills:</strong> Subsystem trade-offs, mission planning basics, telemetry chains.</li>
+              <li><strong>Project:</strong> Design a CubeSat mission concept.</li>
+              <li><strong>Outcome:</strong> Mission design document + presentation.</li>
+            </ul>
+          </div>
+          <a href="login.html" class="event-btn">Enroll</a>
+        </article>
+
+        <article class="course-card">
+          <img src="imgvid/image copy.png" alt="Astrodynamics">
+          <div class="course-meta"><span class="badge">4 weeks</span><span class="badge">Fundamentals</span></div>
+          <h3>Astrodynamics & Orbital Mechanics</h3>
+          <div class="course-details">
+            <ul>
+              <li><strong>Overview:</strong> Orbital motion, delta-v budgets, transfers and basic mission analysis.</li>
+              <li><strong>Skills:</strong> Two-body problem, Hohmann transfers, orbital perturbations.</li>
+              <li><strong>Project:</strong> Plan a transfer orbit for a sample mission.</li>
+              <li><strong>Outcome:</strong> Calculation notebook + concept sketch.</li>
+            </ul>
+          </div>
+          <a href="login.html" class="event-btn">Enroll</a>
+        </article>
+
+      </section>
+
+      <aside class="courses-aside">
+        <h4>Why learn with OrbitEd?</h4>
+        <ul>
+          <li>Project-based labs using real satellite data</li>
+          <li>Mentorship from industry practitioners</li>
+          <li>Certificate and portfolio-ready projects</li>
+          <li>Flexible schedules for students</li>
+        </ul>
+        <a href="register.html" class="event-btn">Register</a>
+      </aside>
+    </main>
+
+    <footer>
+      <section class="footer-info">
+        <h2 class="footer-title">Contact Us</h2>
+        <p class="pfoot">Orbit-Ed AI Space Educator for Earthling<br>📞 91+9090807060 | ✉️ orbit-ed@space.com</p>
+      </section>
+      <section class="footer-bottom">© 2025 Orbit-Ed | All Rights Reserved</section>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
