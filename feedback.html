@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orbit-Ed | Space Intelligence for Earth</title>
+
+  <!-- jsPDF (MUST be before our JS) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #0b1d3a, #02040f);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      box-shadow: 0 0 15px #1e90ff;
+    }
+
+    .card {
+      background: #0c1633;
+      width: 420px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(79,195,247,0.25);
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      background: #02040f;
+      border: 1px solid #4fc3f7;
+      color: white;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: linear-gradient(45deg, #1e90ff, #00e5ff);
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .stars span {
+      font-size: 30px;
+      cursor: pointer;
+      color: gray;
+    }
+
+    .stars span.active {
+      color: gold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛰 Orbit-Ed Space Educator </h1>
+  <p>Visitor Feedback System</p>
+</header>
+
+<!-- FORM -->
+<div class="card" id="formBox">
+  <h2>User Feedback System</h2>
+
+  <input id="name" placeholder="Full Name">
+  <input id="email" placeholder="Email">
+  <input id="date" type="date">
+  <input id="age" type="number">
+
+  <h3>Overall Experience</h3>
+  <div class="stars" id="stars">
+    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+  </div>
+
+  <input id="fav" placeholder="Favorite Exhibit">
+  <textarea id="comments" placeholder="Your comments..."></textarea>
+
+  <button onclick="submitFeedback()">Submit Feedback</button>
+</div>
+
+<!-- AFTER SUBMIT -->
+<div class="card" id="afterBox" style="display:none;">
+  <h2>✅ Feedback Submitted</h2>
+  <p>Thank you for visiting Orbit-Ed</p>
+  <button onclick="downloadPDF()">📄 Download Feedback PDF</button>
+</div>
+
+<script>
+/* ==============================
+   CORE LOGIC (CLEAN & WORKING)
+============================== */
+
+let rating = 0;
+let data = {};
+
+// STAR RATING
+document.querySelectorAll("#stars span").forEach((star, i) => {
+  star.onclick = () => {
+    rating = i + 1;
+    document.querySelectorAll("#stars span").forEach(s => s.classList.remove("active"));
+    for (let j = 0; j < rating; j++) {
+      document.querySelectorAll("#stars span")[j].classList.add("active");
+    }
+  };
+});
+
+// SUBMIT
+function submitFeedback() {
+  data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    date: document.getElementById("date").value,
+    age: document.getElementById("age").value,
+    rating: rating,
+    fav: document.getElementById("fav").value,
+    comments: document.getElementById("comments").value
+  };
+
+  // BASIC VALIDATION
+  if (!data.name || !data.email || rating === 0) {
+    alert("Please fill required fields and rating");
+    return;
+  }
+
+  // HIDE FORM, SHOW DOWNLOAD
+  document.getElementById("formBox").style.display = "none";
+  document.getElementById("afterBox").style.display = "block";
+}
+
+// PDF DOWNLOAD
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
+
+  let y = 20;
+  pdf.setFontSize(16);
+  pdf.text("Orbit-Ed Space Museum", 10, y);
+
+  y += 12;
+  pdf.setFontSize(12);
+  pdf.text("Visitor Feedback Report", 10, y);
+
+  y += 15;
+  pdf.text("Name: " + data.name, 10, y); y += 8;
+  pdf.text("Email: " + data.email, 10, y); y += 8;
+  pdf.text("Date of Visit: " + data.date, 10, y); y += 8;
+  pdf.text("Rating: " + "★".repeat(data.rating), 10, y); y += 8;
+  pdf.text("Favorite Exhibit: " + (data.fav || "N/A"), 10, y); y += 8;
+  pdf.text("Comments: " + (data.comments || "N/A"), 10, y);
+
+  pdf.save("OrbitEd_Feedback.pdf");
+}
+</script>
+
+</body>
+</html>

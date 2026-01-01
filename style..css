@@ -22,7 +22,7 @@ body {
    /* fixes it at the top */   
   height:50px;
   width:100%;
-  max-width: 1450px;
+  max-width:1600px;
 margin: 0 auto;
   position: fixed;
   top: 0;
@@ -640,5 +640,70 @@ footer {
 
 .slide-btn:hover {
   background: #09f0b6;
+}
+
+/* APOD Section */
+.apod-section {
+  padding: 60px 5%;
+  text-align: center;
+  background: radial-gradient(circle at top, #0c133d, #010617);
+  border:3px solid navy;
+  border-radius: 10px;
+}
+
+.apod-card {
+  max-width: 1100px;
+  margin: auto;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+   border:2px solid navy;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+#apod-media {
+  flex: 1 1 480px;
+  min-height: 300px;
+  background: #000;
+}
+
+#apod-media img,
+#apod-media iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.apod-content {
+  flex: 1 1 480px;
+  padding: 30px;
+  color: #e5e7eb;
+  text-align: left;
+}
+
+.apod-content h3 {
+  font-size: 1.8rem;
+  color: #7dd3fc;
+  margin-bottom: 10px;
+}
+
+.apod-content p {
+  font-size: 0.98rem;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.apod-credit {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .apod-card {
+    flex-direction: column;
+  }
 }
 

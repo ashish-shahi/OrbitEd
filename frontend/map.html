@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orbit-Ed | Earth Intelligence Map</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <link rel="stylesheet" href="style/style1.css">
+
+  <style>
+    #map {
+      height: 80vh;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+<div id="video-container">
+  <video autoplay muted loop>
+    <source src="bgvid.mp4" type="video/mp4">
+  </video>
+</div>
+<nav>
+   <div class="flex">
+    <h1><img class="logo-image" src="image.png"/>
+      &nbsp; &nbsp;Orbit-Ed</h1>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div> </div>
+    <a href="index1.html">Home</a>
+   <a href="simulator.html">Simulator</a>
+   <a href="map.html">MAP</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h2>🗺️ Earth Intelligence Map</h2>
+  <p>
+    Visualize climate risk hotspots using satellite-inspired insights.
+  </p>
+
+  <div id="map"></div>
+</section>
+
+<footer>
+  © 2025 Orbit-Ed • Space Meets Earth
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script/map.js"></script>
+
+</body>
+</html>

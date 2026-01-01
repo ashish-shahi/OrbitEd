@@ -1,0 +1,230 @@
+[
+  {
+    "id": "q1_interests",
+    "text": "What type of work interests you the most?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Solving technical problems and coding",
+        "weights": { "technology": 10, "coding": 8, "logic": 5, "sedentary": 2 }
+      },
+      {
+        "text": "Designing visuals, art, or creative media",
+        "weights": { "creative": 10, "visual": 8, "artistic": 6, "design": 6 }
+      },
+      {
+        "text": "Helping people and healthcare",
+        "weights": { "healthcare": 10, "helping_people": 8, "empathy": 6, "biology": 4 }
+      },
+      {
+        "text": "Building or fixing things with my hands",
+        "weights": { "trade": 10, "manual_labor": 8, "technical": 5, "mechanics": 5 }
+      },
+      {
+        "text": "Analyzing data, numbers, or money",
+        "weights": { "finance": 10, "mathematics": 8, "analytical": 6, "data_science": 5 }
+      },
+      {
+        "text": "Leading people and managing business",
+        "weights": { "business": 10, "leadership": 8, "communication": 5, "corporate": 5 }
+      },
+      {
+        "text": "Exploring nature, science, and the outdoors",
+        "weights": { "science": 10, "nature": 8, "outdoor": 6, "research": 5 }
+      },
+      {
+        "text": "Upholding the law and public service",
+        "weights": { "law": 10, "government_exam": 8, "social_impact": 5, "investigative": 5 }
+      }
+    ]
+  },
+  {
+    "id": "q2_skills",
+    "text": "Which skill comes most naturally to you?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Logical thinking and mathematics",
+        "weights": { "logic": 5, "mathematics": 5, "analytical": 4, "coding": 2 }
+      },
+      {
+        "text": "Communication and persuasion",
+        "weights": { "communication": 5, "sales": 4, "public_speaking": 4, "leadership": 2 }
+      },
+      {
+        "text": "Physical strength and endurance",
+        "weights": { "physical_stamina": 5, "manual_labor": 4, "field_work": 3 }
+      },
+      {
+        "text": "Creativity and aesthetics",
+        "weights": { "creative": 5, "visual": 4, "design": 3 }
+      },
+      {
+        "text": "Attention to detail and organization",
+        "weights": { "detail_oriented": 5, "organized": 4, "administration": 3 }
+      },
+      {
+        "text": "Empathy and listening",
+        "weights": { "empathy": 5, "helping_people": 4, "patience": 3 }
+      }
+    ]
+  },
+  {
+    "id": "q3_environment",
+    "text": "Where do you see yourself working?",
+    "type": "single",
+    "options": [
+      {
+        "text": "In a modern office or corporate setting",
+        "weights": { "corporate": 5, "sedentary": 3, "business": 2 }
+      },
+      {
+        "text": "Working from home (Remote)",
+        "weights": { "remote_possible": 8, "technology": 2, "independent": 2 }
+      },
+      {
+        "text": "Outdoors, in the field, or traveling",
+        "weights": { "outdoor": 5, "field_work": 5, "travel": 4, "nature": 2 }
+      },
+      {
+        "text": "In a laboratory or research center",
+        "weights": { "science": 5, "research": 5, "lab_work": 5, "quiet": 2 }
+      },
+      {
+        "text": "In a hospital or clinic",
+        "weights": { "healthcare": 5, "biology": 2, "helping_people": 3 }
+      },
+      {
+        "text": "In a workshop, factory, or construction site",
+        "weights": { "trade": 5, "manufacturing": 5, "manual_labor": 3, "hazardous": 1 }
+      }
+    ]
+  },
+  {
+    "id": "q4_education",
+    "text": "How much time are you willing to spend on education?",
+    "type": "single",
+    "options": [
+      {
+        "text": "I want to start working ASAP (0-2 years study)",
+        "weights": { "trade": 4, "creative": 2, "sales": 3, "requires_long_study": -20 }
+      },
+      {
+        "text": "Standard college degree (3-4 years)",
+        "weights": { "technology": 2, "business": 2, "engineering": 2, "requires_long_study": 0 }
+      },
+      {
+        "text": "I love studying / willing to do Masters/PhD (5+ years)",
+        "weights": { "requires_long_study": 5, "research": 4, "science": 3, "healthcare": 3, "law": 3 }
+      }
+    ]
+  },
+  {
+    "id": "q5_dealbreakers",
+    "text": "What are your absolute deal-breakers?",
+    "type": "multi",
+    "options": [
+      {
+        "text": "No night shifts or irregular hours",
+        "weights": { "shift_work": -20, "stable": 3, "9_to_5": 3 }
+      },
+      {
+        "text": "No field work or frequent travel",
+        "weights": { "field_work": -20, "travel": -20, "outdoor": -5, "sedentary": 2 }
+      },
+      {
+        "text": "No sales / commission-heavy roles",
+        "weights": { "sales": -20, "commission": -20, "marketing": -2 }
+      },
+      {
+        "text": "No high physical risk or danger",
+        "weights": { "hazardous": -20, "physical_stamina": -5, "police": -5 }
+      },
+      {
+        "text": "Prefer government / public sector roles only",
+        "weights": { "government_exam": 8, "stable": 4, "corporate": -10 }
+      },
+      {
+        "text": "Prefer private sector / corporate roles",
+        "weights": { "corporate": 5, "business": 3, "government_exam": -10 }
+      },
+      {
+        "text": "Cannot do long-term study",
+        "weights": { "requires_long_study": -20, "medical_degree": -20, "phd": -20 }
+      },
+      {
+        "text": "Cannot work under high stress or emergencies",
+        "weights": { "high_pressure": -20, "stress": -20, "relaxed": 5 }
+      },
+      {
+        "text": "Need remote-friendly jobs",
+        "weights": { "remote_possible": 10, "field_work": -15, "onsite_only": -15 }
+      },
+      {
+        "text": "Need predictable routine and stable hours",
+        "weights": { "stable": 5, "routine": 5, "entrepreneurial": -5 }
+      }
+    ]
+  },
+  {
+    "id": "q6_risk",
+    "text": "What is your risk appetite regarding income?",
+    "type": "single",
+    "options": [
+      {
+        "text": "I need a stable, guaranteed salary",
+        "weights": { "stable": 5, "government_exam": 3, "corporate": 2, "entrepreneurial": -5 }
+      },
+      {
+        "text": "I'm okay with some risk for higher growth",
+        "weights": { "business": 3, "corporate": 2 }
+      },
+      {
+        "text": "High Risk, High Reward (Business/Commission)",
+        "weights": { "entrepreneurial": 8, "sales": 4, "risk_taking": 5, "stable": -2 }
+      }
+    ]
+  },
+  {
+    "id": "q7_goal",
+    "text": "What is your primary career goal?",
+    "type": "single",
+    "options": [
+      {
+        "text": "High Earning Potential",
+        "weights": { "high_pay": 5, "finance": 3, "technology": 3, "business": 3 }
+      },
+      {
+        "text": "Work-Life Balance",
+        "weights": { "stable": 4, "stress": -3, "9_to_5": 4, "government_exam": 2 }
+      },
+      {
+        "text": "Social Impact / Helping Others",
+        "weights": { "social_impact": 5, "helping_people": 5, "teaching": 4, "ngo": 4 }
+      },
+      {
+        "text": "Innovation and Creating New Things",
+        "weights": { "creative": 4, "technology": 4, "research": 4, "design": 3 }
+      }
+    ]
+  },
+  {
+    "id": "q8_growth",
+    "text": "What kind of long-term growth do you prefer?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Climbing the corporate ladder (Manager/VP)",
+        "weights": { "leadership": 5, "corporate": 5, "management": 4 }
+      },
+      {
+        "text": "Deep Technical Expertise (Specialist)",
+        "weights": { "technical": 5, "research": 4, "technology": 3, "medicine": 3 }
+      },
+      {
+        "text": "Starting my own business or freelancing",
+        "weights": { "entrepreneurial": 5, "independent": 5, "business": 3 }
+      }
+    ]
+  }
+]
