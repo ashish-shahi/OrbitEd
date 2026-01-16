@@ -76,34 +76,42 @@
   }
 
   /* Career Cards */
-  .career-card {
+   .career-card {
     background: var(--card-bg);
     backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border: 2px solid rgb(42, 6, 187);
+    border-radius: 19px;
     padding: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     height: 100%;
+    min-height: 250px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
+    gap:20px;
     flex-direction: column;
   }
-
+  
+  .col-md-4 {
+    margin-bottom: 30px;
+  }
   .career-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary-blue);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 213, 255, 0.255);
   }
 
   .career-card h5 {
     color: var(--primary-blue);
     font-weight: 700;
-    margin-bottom: 15px;
+    text-align:auto;
+    margin-bottom: 18px;
   }
 
   .career-card p {
-    font-size: 0.95rem;
-    color: #b0b0b0;
+    font-size: 0.98rem;
+    color: #eae8e8;
+     text-align: auto;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     line-height: 1.6;
   }
 
@@ -141,6 +149,7 @@
     border: 1px solid var(--border-color);
     color: #fff;
     margin: 0 5px;
+   
     border-radius: 5px;
   }
 
@@ -155,6 +164,62 @@
     background: var(--border-color);
     color: var(--primary-blue);
   }
+    /* Dynamic Button with Hover Glow Effect */
+.dynamic-button {
+  position: relative;
+  padding: 14px 32px;
+  font-size: 23px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+  color: #d0f05a;
+ background: linear-gradient(-45deg,navy, #011f3a, #083a66, #061d40);
+ background-size: 400% 400%;
+    animation: dynamicGradient 15s ease infinite;
+  border: 3px solid rgba(2, 249, 212, 0.842);
+  border-radius: 28px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  outline: none;
+  margin-bottom: 30px;
+  height:90px;
+  width:250px;
+}
+
+/* The hovering glow effect */
+.btn-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--primary-glow);
+  box-shadow: 0 0 40px 20px var(--primary-glow);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  z-index: -1;
+}
+
+.dynamic-button:hover {
+  border-color: var(--primary-glow);
+  transform: translateY(-2px);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(116, 192, 3, 0.4);
+}
+
+.dynamic-button:hover .btn-glow {
+  width: 100px;
+  height: 10px;
+  opacity: 0.3;
+}
+
+.dynamic-button:active {
+  transform: translateY(0);
+  filter: brightness(1.2);
+}
 </style>
 </style>
 </head>
@@ -164,8 +229,16 @@
 <div id="particles-js"></div>
 
 <div class="container">
-  <h1>Careers in Space & Technology</h1>
-
+  <h1 align="center">Careers in Space & Technology</h1>
+   <center>  <button class="dynamic-button" data-url="quiz.html" onclick="location.href='quiz.html'">
+  <span class="btn-content">Career Quiz</span>
+  <div class="btn-glow"></div>
+</button>
+ <button style="margin-left:40px;" class="dynamic-button" data-url="index.html" onclick="location.href='index.html'">
+  <span class="btn-content">Back to Galaxy </span>
+  <div class="btn-glow"></div>
+</button>
+</center>
   <!-- Filters -->
   <div class="filter-section text-center mb-4">
     <input type="text" id="search" placeholder="Search career...">
@@ -333,6 +406,24 @@
       `);
     }
   }
+  document.querySelectorAll('.dynamic-button').forEach(button => {
+  button.addEventListener('click', function(e) {
+    // 1. Visual Feedback: Add a "clicked" class for a quick pulse
+    this.style.transform = "scale(0.95)";
+    
+    // 2. Get the dynamic URL from the data attribute
+    const targetUrl = this.getAttribute('data-url');
+
+    // 3. Delay redirect slightly so the user sees the button animation
+    setTimeout(() => {
+      if (targetUrl) {
+        window.location.href = targetUrl;
+      } else {
+        console.error("No URL provided for this button.");
+      }
+    }, 200);
+  });
+});
 
   // Search/Filter events
   $('#search, #fieldFilter, #levelFilter').on('input change', function() {
