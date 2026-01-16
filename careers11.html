@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers in Space & Technology</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- Particle.js for space background -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary-blue: #00d4ff;
+    --deep-space: #05060f;
+    --card-bg: rgba(26, 27, 51, 0.7);
+    --border-color: rgba(0, 212, 255, 0.3);
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at center, #10112e 0%, #05060f 100%);
+    color: #e0e0e0;
+    overflow-x: hidden;
+  }
+
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #fff, var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 50px;
+  }
+
+  /* Professional Glass Filters */
+  .filter-section {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  .filter-section input, .filter-section select {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .filter-section input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  }
+
+  /* Career Cards */
+  .career-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .career-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+  }
+
+  .career-card h5 {
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .career-card p {
+    font-size: 0.95rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+  }
+
+  .career-card .badge-field {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--primary-blue);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Custom Modal */
+  .modal-content {
+    background: #0d0e1a;
+    border: 1px solid var(--primary-blue);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.2);
+  }
+
+  .modal-header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 25px;
+  }
+
+  .modal-body {
+    padding: 30px;
+    line-height: 1.8;
+  }
+
+  /* Pagination Styling */
+  .page-link {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 5px;
+  }
+
+  .page-item.active .page-link {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: #000;
+    font-weight: bold;
+  }
+
+  .page-link:hover {
+    background: var(--border-color);
+    color: var(--primary-blue);
+  }
+</style>
+</style>
+</head>
+<body>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<div class="container">
+  <h1>Careers in Space & Technology</h1>
+
+  <!-- Filters -->
+  <div class="filter-section text-center mb-4">
+    <input type="text" id="search" placeholder="Search career...">
+    <select id="fieldFilter">
+      <option value="">All Fields</option>
+      <option value="Space Exploration">Space Exploration</option>
+      <option value="Research">Research</option>
+      <option value="Engineering">Engineering</option>
+      <option value="AI/ML">AI/ML</option>
+      <option value="Astronomy">Astronomy</option>
+    </select>
+    <select id="levelFilter">
+      <option value="">All Levels</option>
+      <option value="Undergrad">Undergrad</option>
+      <option value="Postgrad">Postgrad</option>
+      <option value="PhD">PhD</option>
+    </select>
+  </div>
+
+  <!-- Careers Grid -->
+  <div class="row" id="careersGrid"></div>
+
+  <!-- Pagination -->
+  <nav>
+    <ul class="pagination" id="pagination"></ul>
+  </nav>
+</div>
+
+<!-- Career Modal -->
+<div class="modal fade" id="careerModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="careerModalTitle"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="careerModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Sample JSON Data (expand to 100+ careers)
+  const careers = [
+    
+{"name":"Astronaut","field":"Space Exploration","level":"Postgrad","description":"Travel and work in space aboard spacecraft.","skills":["Physical Fitness","Engineering","Problem Solving"],"pathway":"B.Tech/Aeronautical Engineering, join space programs, physical training."},
+{"name":"Astrophysicist","field":"Research","level":"PhD","description":"Study celestial objects, space phenomena, and the universe.","skills":["Physics","Mathematics","Data Analysis"],"pathway":"B.Sc Physics, M.Sc Astrophysics, research internships."},
+{"name":"Satellite Engineer","field":"Engineering","level":"Postgrad","description":"Design, build, and maintain satellites.","skills":["Electronics","Mechanical Engineering","Programming"],"pathway":"B.Tech Aerospace/Electronics, satellite projects, internships."},
+{"name":"Robotics Engineer","field":"AI/ML","level":"Postgrad","description":"Design robots for space exploration.","skills":["Robotics","Programming","AI"],"pathway":"B.Tech Robotics/AI, robotics competitions, internships."},
+{"name":"Planetary Geologist","field":"Research","level":"PhD","description":"Study planets and their compositions.","skills":["Geology","Remote Sensing","Data Analysis"],"pathway":"B.Sc Geology, M.Sc Planetary Science, research projects."},
+{"name":"Mission Control Specialist","field":"Space Exploration","level":"Postgrad","description":"Monitor spacecraft missions from ground stations.","skills":["Problem Solving","Communication","Systems Knowledge"],"pathway":"Engineering degree, training with space agencies."},
+{"name":"Space Lawyer","field":"Research","level":"Postgrad","description":"Specialize in space law and treaties.","skills":["Law","Policy Analysis","Negotiation"],"pathway":"Law degree, specialization in space law, internships with agencies."},
+{"name":"Aerospace Engineer","field":"Engineering","level":"Postgrad","description":"Design aircraft and spacecraft.","skills":["Aerodynamics","CAD","Materials Science"],"pathway":"B.Tech Aerospace Engineering, design projects, internships."},
+{"name":"Data Scientist (Space)","field":"AI/ML","level":"Postgrad","description":"Analyze space data using AI/ML models.","skills":["Python","Machine Learning","Data Analysis"],"pathway":"B.Tech/M.Tech CS/AI, space data projects."},
+{"name":"Astrobiologist","field":"Research","level":"PhD","description":"Study possibility of life beyond Earth.","skills":["Biology","Chemistry","Research"],"pathway":"B.Sc Biology, M.Sc Astrobiology, lab research."},
+{"name":"Space Policy Analyst","field":"Research","level":"Postgrad","description":"Analyze and create space policies.","skills":["Policy Analysis","Research","Communication"],"pathway":"Masters in Space Policy or International Relations."},
+{"name":"Satellite Communication Engineer","field":"Engineering","level":"Postgrad","description":"Design communication systems for satellites.","skills":["Telecom","Electronics","Networking"],"pathway":"B.Tech Electronics/Telecom, satellite projects."},
+{"name":"Flight Dynamics Engineer","field":"Space Exploration","level":"Postgrad","description":"Calculate spacecraft trajectories.","skills":["Math","Physics","Simulation"],"pathway":"Engineering or Physics degree, space agency projects."},
+{"name":"Planetary Scientist","field":"Research","level":"PhD","description":"Study planet formation and evolution.","skills":["Physics","Geology","Data Analysis"],"pathway":"B.Sc Physics/Geology, research internships."},
+{"name":"Spacecraft Propulsion Engineer","field":"Engineering","level":"Postgrad","description":"Design engines for spacecraft.","skills":["Thermodynamics","Mechanical Engineering","Materials Science"],"pathway":"B.Tech Aerospace/Mechanical Engineering."},
+{"name":"Satellite Imagery Analyst","field":"AI/ML","level":"Postgrad","description":"Analyze satellite images for Earth and space.","skills":["Python","Image Processing","GIS"],"pathway":"Degree in CS/Remote Sensing, internships."},
+{"name":"Exoplanet Researcher","field":"Research","level":"PhD","description":"Study planets outside the solar system.","skills":["Astronomy","Data Analysis","Mathematics"],"pathway":"Masters/PhD in Astrophysics."},
+{"name":"Space Entrepreneur","field":"Space Exploration","level":"Postgrad","description":"Start businesses in space tech.","skills":["Business","Engineering","Leadership"],"pathway":"Engineering or Business degree, startup experience."},
+{"name":"Astrochemist","field":"Research","level":"PhD","description":"Study chemical processes in space.","skills":["Chemistry","Lab Skills","Data Analysis"],"pathway":"B.Sc Chemistry, Masters/PhD Astrochemistry."},
+{"name":"Space Educator","field":"Research","level":"Undergrad","description":"Teach and inspire students about space.","skills":["Communication","Physics/Astronomy Knowledge","Creativity"],"pathway":"Education degree, passion for space, teaching experience."},
+{"name":"Space Station Engineer","field":"Engineering","level":"Postgrad","description":"Design and maintain space stations.","skills":["Mechanical Engineering","Systems Engineering","Teamwork"],"pathway":"B.Tech Aerospace/Mechanical Engineering, internships at space agencies."},
+{"name":"Rocket Propulsion Specialist","field":"Engineering","level":"Postgrad","description":"Develop rocket engines for launch vehicles.","skills":["Mechanical Engineering","Thermodynamics","Materials Science"],"pathway":"B.Tech Aerospace/Mechanical Engineering, specialized training."},
+{"name":"Space Nutritionist","field":"Research","level":"Postgrad","description":"Plan astronauts' diets for long-duration missions.","skills":["Nutrition Science","Biology","Planning"],"pathway":"B.Sc Nutrition/Dietetics, research in space agencies."},
+{"name":"Space Robotics Technician","field":"Engineering","level":"Undergrad","description":"Maintain robots used in space missions.","skills":["Mechanical Skills","Electronics","Problem Solving"],"pathway":"Diploma/B.Tech Robotics, hands-on experience."},
+{"name":"Satellite Systems Analyst","field":"AI/ML","level":"Postgrad","description":"Analyze satellite system performance and data.","skills":["Systems Engineering","Data Analysis","Problem Solving"],"pathway":"B.Tech CS/Electronics, internships in satellite projects."},
+{"name":"Exoplanet Atmosphere Researcher","field":"Research","level":"PhD","description":"Study atmospheres of exoplanets.","skills":["Astronomy","Spectroscopy","Data Analysis"],"pathway":"Masters/PhD in Astronomy/Astrophysics."},
+{"name":"Space Software Developer","field":"AI/ML","level":"Postgrad","description":"Develop software for spacecraft and space research.","skills":["Programming","Algorithms","System Design"],"pathway":"B.Tech CS/Software Engineering, internships in space tech."},
+{"name":"Interstellar Communications Researcher","field":"Research","level":"PhD","description":"Study communication systems for interstellar missions.","skills":["Physics","Telecommunications","Mathematics"],"pathway":"Masters/PhD in Physics/Telecommunications."},
+{"name":"Space Medicine Specialist","field":"Research","level":"Postgrad","description":"Medical care for astronauts during missions.","skills":["Medicine","Physiology","Problem Solving"],"pathway":"MBBS, specialization in aerospace medicine, internships."},
+{"name":"Astroinformatics Scientist","field":"AI/ML","level":"Postgrad","description":"Analyze large astronomical datasets using AI/ML.","skills":["Python","Machine Learning","Statistics"],"pathway":"B.Tech/M.Tech CS/AI, astronomy projects."},
+{"name":"Space Architect","field":"Engineering","level":"Postgrad","description":"Design habitats for space living.","skills":["Architecture","Engineering","3D Modeling"],"pathway":"Degree in Architecture, specialization in space habitats."},
+{"name":"Lunar Geologist","field":"Research","level":"PhD","description":"Study the Moon’s surface and geology.","skills":["Geology","Remote Sensing","Data Analysis"],"pathway":"B.Sc Geology, M.Sc/PhD Planetary Science."},
+{"name":"Planetary Cartographer","field":"Research","level":"Postgrad","description":"Map planets and celestial bodies.","skills":["GIS","Astronomy","Remote Sensing"],"pathway":"B.Sc Geology/Physics, GIS courses, internships."},
+{"name":"Satellite Payload Specialist","field":"Engineering","level":"Postgrad","description":"Design and manage satellite payloads.","skills":["Electronics","Programming","Systems Engineering"],"pathway":"B.Tech Electronics/Mechanical Engineering, satellite internships."},
+{"name":"Space Weather Scientist","field":"Research","level":"PhD","description":"Study solar storms and space weather phenomena.","skills":["Physics","Mathematics","Data Analysis"],"pathway":"B.Sc Physics, M.Sc Space Science, PhD research."},
+{"name":"Astrophotographer","field":"Research","level":"Undergrad","description":"Capture images of celestial objects for study and outreach.","skills":["Photography","Astronomy Knowledge","Image Processing"],"pathway":"Undergraduate degree, astronomy clubs, workshops."},
+{"name":"Orbital Mechanics Specialist","field":"Engineering","level":"Postgrad","description":"Calculate and optimize spacecraft orbits.","skills":["Mathematics","Physics","Simulation Software"],"pathway":"B.Tech Aerospace/Mechanical Engineering, space agency training."},
+{"name":"Space Systems Integration Engineer","field":"Engineering","level":"Postgrad","description":"Integrate multiple spacecraft systems for missions.","skills":["Systems Engineering","Problem Solving","Teamwork"],"pathway":"B.Tech Aerospace/Mechanical/Electronics Engineering, internships."},
+{"name":"Deep Space Network Engineer","field":"Engineering","level":"Postgrad","description":"Manage ground communication networks for space missions.","skills":["Networking","Electronics","Systems Knowledge"],"pathway":"B.Tech CS/Electronics/Telecom, space agency internships."},
+{"name":"Planetary Atmosphere Researcher","field":"Research","level":"PhD","description":"Study atmospheres of planets and moons.","skills":["Chemistry","Physics","Data Analysis"],"pathway":"M.Sc/PhD in Planetary Science or Atmospheric Science."},
+{"name":"Space Mission Planner","field":"Space Exploration","level":"Postgrad","description":"Plan missions including routes, timing, and resources.","skills":["Project Management","Physics","Engineering"],"pathway":"B.Tech Aerospace/Mechanical, space agency mission planning internships."},
+{"name":"Lunar Habitat Designer","field":"Engineering","level":"Postgrad","description":"Design sustainable living spaces on the Moon.","skills":["Architecture","Engineering","CAD"],"pathway":"Degree in Architecture or Engineering, space habitat projects."},
+{"name":"Space Environmental Scientist","field":"Research","level":"PhD","description":"Study environmental impacts of space missions.","skills":["Environmental Science","Physics","Chemistry"],"pathway":"Masters/PhD in Environmental Science or Space Science."},
+{"name":"Exoplanet Habitability Researcher","field":"Research","level":"PhD","description":"Study potential habitable exoplanets.","skills":["Astronomy","Astrobiology","Data Analysis"],"pathway":"Masters/PhD in Astrobiology or Astrophysics."},
+{"name":"Space Telescope Operator","field":"Engineering","level":"Postgrad","description":"Operate and manage space telescopes.","skills":["Astronomy","Physics","Technical Skills"],"pathway":"B.Sc Astronomy/Physics, internships with observatories or space agencies."},
+{"name":"Astrophysical Modeler","field":"Research","level":"PhD","description":"Create computational models of astrophysical phenomena.","skills":["Mathematics","Physics","Programming"],"pathway":"Masters/PhD in Astrophysics, computational research."},
+{"name":"Planetary Rover Engineer","field":"Engineering","level":"Postgrad","description":"Design and maintain planetary rovers.","skills":["Robotics","Mechanical Engineering","Programming"],"pathway":"B.Tech Robotics/Mechanical Engineering, internships at space agencies."},
+{"name":"Space Debris Analyst","field":"Research","level":"Postgrad","description":"Analyze and track orbital debris.","skills":["Physics","Mathematics","Data Analysis"],"pathway":"B.Sc Physics/Engineering, internships in space agencies."},
+{"name":"Space Mining Engineer","field":"Engineering","level":"Postgrad","description":"Plan and develop mining operations on asteroids.","skills":["Mining Engineering","Mechanical Engineering","Problem Solving"],"pathway":"B.Tech Mining/Aerospace Engineering, specialized training."},
+{"name":"Space Simulation Developer","field":"AI/ML","level":"Postgrad","description":"Develop simulations for training astronauts and mission planning.","skills":["Programming","3D Modeling","Simulation"],"pathway":"B.Tech CS/Software Engineering, simulation projects."},
+{"name":"Astrophysics Professor","field":"Research","level":"PhD","description":"Teach and research in universities.","skills":["Physics","Research","Communication"],"pathway":"PhD in Astrophysics, teaching and research experience."},
+{"name":"Space Communications Analyst","field":"AI/ML","level":"Postgrad","description":"Optimize communication systems for space missions.","skills":["Telecom","Programming","Signal Processing"],"pathway":"B.Tech Electronics/Telecom, internships in space communications."},
+{"name":"Space Systems Reliability Engineer","field":"Engineering","level":"Postgrad","description":"Ensure reliability of spacecraft systems.","skills":["Engineering","Problem Solving","Systems Knowledge"],"pathway":"B.Tech Aerospace/Mechanical/Electronics Engineering, internships."},
+{"name":"Planetary Remote Sensing Specialist","field":"Research","level":"PhD","description":"Use satellite data to study planetary surfaces.","skills":["Remote Sensing","GIS","Data Analysis"],"pathway":"Masters/PhD in Planetary Science, GIS projects."},
+{"name":"Space Operations Manager","field":"Space Exploration","level":"Postgrad","description":"Manage day-to-day operations of space missions.","skills":["Management","Engineering","Problem Solving"],"pathway":"Engineering degree, experience in space agency operations."},
+{"name":"Space Hardware Technician","field":"Engineering","level":"Undergrad","description":"Assemble and maintain space hardware.","skills":["Mechanical Skills","Electronics","Problem Solving"],"pathway":"Diploma/B.Tech in relevant engineering fields, hands-on projects."},
+{"name":"Astronomical Instrument Designer","field":"Engineering","level":"Postgrad","description":"Design instruments for telescopes and spacecraft.","skills":["Engineering","Optics","Programming"],"pathway":"B.Tech Engineering, internships in instrument design."},
+{"name":"Space Psychology Specialist","field":"Research","level":"Postgrad","description":"Study psychological effects of long-term space missions.","skills":["Psychology","Research","Problem Solving"],"pathway":"Masters in Psychology, specialization in space or extreme environment studies."},
+{"name":"Planetary Climate Scientist","field":"Research","level":"PhD","description":"Study planetary climates and atmospheres.","skills":["Physics","Chemistry","Data Analysis"],"pathway":"Masters/PhD in Planetary Science or Atmospheric Science."},
+{"name":"Space Tourism Specialist","field":"Space Exploration","level":"Postgrad","description":"Plan and manage commercial space travel.","skills":["Business","Engineering","Customer Management"],"pathway":"Business/Engineering degree, experience in travel/tourism and space agencies."},
+{"name":"Orbital Debris Mitigation Engineer","field":"Engineering","level":"Postgrad","description":"Develop methods to reduce orbital debris.","skills":["Mechanical Engineering","Problem Solving","Physics"],"pathway":"B.Tech Aerospace/Mechanical, space debris projects."},
+{"name":"Space Mission Safety Analyst","field":"Research","level":"Postgrad","description":"Assess risks and safety for space missions.","skills":["Risk Analysis","Engineering","Problem Solving"],"pathway":"Engineering degree, safety management experience in space agencies."},
+{"name":"Astrogeologist","field":"Research","level":"PhD","description":"Study geology of planets and celestial bodies.","skills":["Geology","Remote Sensing","Data Analysis"],"pathway":"B.Sc Geology, Masters/PhD in Planetary Science."},
+{"name":"Space Systems Engineer","field":"Engineering","level":"Postgrad","description":"Design and integrate spacecraft systems.","skills":["Systems Engineering","Mechanical Engineering","Electronics"],"pathway":"B.Tech Aerospace/Mechanical/Electronics Engineering, internships."},
+{"name":"Planetary Magnetosphere Researcher","field":"Research","level":"PhD","description":"Study magnetic fields of planets and moons.","skills":["Physics","Mathematics","Data Analysis"],"pathway":"Masters/PhD in Physics/Space Science."},
+{"name":"Spacecraft Thermal Engineer","field":"Engineering","level":"Postgrad","description":"Manage temperature control systems of spacecraft.","skills":["Thermodynamics","Mechanical Engineering","Problem Solving"],"pathway":"B.Tech Aerospace/Mechanical Engineering, internships."},
+{"name":"Astrostatistics Specialist","field":"AI/ML","level":"Postgrad","description":"Analyze astronomical data using statistical models.","skills":["Statistics","Python","Data Analysis"],"pathway":"Masters/PhD in Statistics/AI with astronomy projects."},
+{"name":"Lunar Rover Operator","field":"Engineering","level":"Postgrad","description":"Operate rovers on lunar missions.","skills":["Robotics","Problem Solving","Technical Skills"],"pathway":"B.Tech Robotics/Mechanical Engineering, hands-on training."},
+{"name":"Space Simulation Trainer","field":"AI/ML","level":"Postgrad","description":"Train astronauts using simulated environments.","skills":["Simulation","AI/ML","Programming"],"pathway":"B.Tech CS/Robotics, simulation projects."},
+{"name":"Exoplanet Spectroscopist","field":"Research","level":"PhD","description":"Analyze exoplanet light spectra to study composition.","skills":["Astronomy","Spectroscopy","Data Analysis"],"pathway":"Masters/PhD in Astronomy/Physics."},
+{"name":"Space Robotics Designer","field":"Engineering","level":"Postgrad","description":"Design robotic systems for space missions.","skills":["Robotics","Mechanical Engineering","Programming"],"pathway":"B.Tech Robotics/Mechanical Engineering, internships."},
+{"name":"Astrochemistry Lab Technician","field":"Research","level":"Undergrad","description":"Assist in astrochemistry experiments.","skills":["Chemistry","Lab Skills","Problem Solving"],"pathway":"Diploma/B.Sc Chemistry, lab experience."},
+{"name":"Space Propulsion Technician","field":"Engineering","level":"Undergrad","description":"Maintain and test propulsion systems.","skills":["Mechanical Skills","Electronics","Problem Solving"],"pathway":"Diploma/B.Tech Mechanical/Electronics, hands-on training."},
+{"name":"Space Data Analyst","field":"AI/ML","level":"Postgrad","description":"Analyze large datasets from space missions.","skills":["Python","Data Analysis","Machine Learning"],"pathway":"B.Tech/M.Tech CS/AI, space data projects."}
+  ];
+
+  const itemsPerPage = 9; // Careers per page
+  let currentPage = 1;
+
+  function renderCareers() {
+    const searchText = $('#search').val().toLowerCase();
+    const fieldFilter = $('#fieldFilter').val();
+    const levelFilter = $('#levelFilter').val();
+
+    let filtered = careers.filter(career => 
+      career.name.toLowerCase().includes(searchText) &&
+      (fieldFilter === "" || career.field === fieldFilter) &&
+      (levelFilter === "" || career.level === levelFilter)
+    );
+
+    const totalPages = Math.ceil(filtered.length / itemsPerPage);
+    currentPage = Math.min(currentPage, totalPages) || 1;
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const pageItems = filtered.slice(start, end);
+
+    $('#careersGrid').empty();
+    pageItems.forEach((career, index) => {
+      $('#careersGrid').append(`
+        <div class="col-md-4">
+          <div class="career-card" data-index="${careers.indexOf(career)}" data-bs-toggle="modal" data-bs-target="#careerModal">
+            <h5>${career.name}</h5>
+            <p>${career.description}</p>
+            <small>Field: ${career.field} | Level: ${career.level}</small>
+          </div>
+        </div>
+      `);
+    });
+
+    // Pagination
+    $('#pagination').empty();
+    for (let i = 1; i <= totalPages; i++) {
+      $('#pagination').append(`
+        <li class="page-item ${i === currentPage ? 'active' : ''}">
+          <a class="page-link" href="#">${i}</a>
+        </li>
+      `);
+    }
+  }
+
+  // Search/Filter events
+  $('#search, #fieldFilter, #levelFilter').on('input change', function() {
+    currentPage = 1;
+    renderCareers();
+  });
+
+  // Pagination click
+  $(document).on('click', '.page-link', function(e) {
+    e.preventDefault();
+    currentPage = parseInt($(this).text());
+    renderCareers();
+  });
+
+  // Modal pop-up
+  $(document).on('click', '.career-card', function() {
+    const career = careers[$(this).data('index')];
+    $('#careerModalTitle').text(career.name);
+    $('#careerModalBody').html(`
+      <p><strong>Field:</strong> ${career.field}</p>
+      <p><strong>Level:</strong> ${career.level}</p>
+      <p><strong>Description:</strong> ${career.description}</p>
+      <p><strong>Skills Required:</strong> ${career.skills.join(', ')}</p>
+      <p><strong>Pathway:</strong> ${career.pathway}</p>
+    `);
+  });
+
+  // Initial render
+  renderCareers();
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 80, // Lower density feels cleaner
+      "density": { "enable": true, "value_area": 800 }
+    },
+    "color": { "value": "#ffffff" },
+    "shape": { "type": "circle" },
+    "opacity": {
+      "value": 0.3, // Lower opacity is less distracting
+      "random": false
+    },
+    "size": {
+      "value": 3,
+      "random": true // Varied sizes look more natural
+    },
+    "line_linked": {
+      "enable": true, // Connects dots for a professional 'network' look
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.2,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.5, // Slow, fluid movement
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out"
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab" // 'Grab' creates a sophisticated connection to the mouse
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      }
+    },
+    "modes": {
+      "grab": { "distance": 200, "line_linked": { "opacity": 0.5 } }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+</body>
+</html>

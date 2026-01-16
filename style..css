@@ -7,8 +7,7 @@ body {
   
     box-sizing: border-box;
 }
-
-    
+ 
 /* ======= NAVBAR ======= */
 .navbar {
   display: flex;
@@ -644,6 +643,7 @@ footer {
 
 /* APOD Section */
 .apod-section {
+  
   padding: 60px 5%;
   text-align: center;
   background: radial-gradient(circle at top, #0c133d, #010617);
